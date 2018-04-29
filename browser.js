@@ -45,6 +45,7 @@ ipc.on('log-out', () => {
 
 ipc.on('play', () => exec('a.togglePause()'));
 ipc.on('next', () => exec('a.next()'));
+ipc.on('prev', () => exec('a.prev()'));
 ipc.on('like', () => click(el.like));
 ipc.on('dislike', () => click(el.dislike));
 ipc.on('mute', () => exec('a.mute()'));

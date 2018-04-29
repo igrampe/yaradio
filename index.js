@@ -54,7 +54,7 @@ function createMainWindow() {
 		win.setSheetOffset(40);
 	}
 
-	win.loadURL('https://radio.yandex.ru/');
+	win.loadURL('https://music.yandex.ru/');
 
 	win.on('close', e => {
 		if (!isQuitting) {
@@ -81,6 +81,7 @@ app.on('ready', () => {
 
 	electron.globalShortcut.register('MediaPlayPause', () => win.send('play'));
 	electron.globalShortcut.register('MediaNextTrack', () => win.send('next'));
+	electron.globalShortcut.register('MediaPreviousTrack', () => win.send('prev'));
 
 	const page = win.webContents;
 	const argv = require('minimist')(process.argv.slice(1));
@@ -97,7 +98,7 @@ app.on('ready', () => {
 
 	page.on('new-window', (e, url) => {
 		e.preventDefault();
-		electron.shell.openExternal(url);
+		win.loadURL(url)
 	});
 });
 
@@ -108,6 +109,7 @@ app.on('before-quit', () => {
 
 	electron.globalShortcut.unregister('MediaPlayPause');
 	electron.globalShortcut.unregister('MediaNextTrack');
+	electron.globalShortcut.unregister('MediaPreviousTrack');
 
 	if (!win.isFullScreen()) {
 		config.set('lastWindowState', win.getBounds());

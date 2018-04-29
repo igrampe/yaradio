@@ -26,18 +26,18 @@ body
 	-webkit-app-region: drag;
 }
 
-.footer, .head__left, .logo,
-.nav__level_0 .footer__static-text
+.footer
 {
 	display: none !important;
 }
 
-.nav__level_0 .nav__items
+/*.footer, .head__left, .logo,
+.nav__level_0 .footer__static-text
 {
-	padding-top: 30px !important;
-}
+	display: none !important;
+}*/
 
-.nav__level_0 .nav__banner
+.head
 {
-	padding-bottom: 0;
+	padding-top: 20pt !important;
 }
